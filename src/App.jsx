@@ -6,13 +6,10 @@ import About from './Component/About';
 import Project from './Component/Project';
 import Skills from './Component/Skills';
 import Contact from './Component/Contact';
-import ParticleBackground from './Component/ParticleBackground'; // Ensure this path is correct
-import './App.css';
-
+import "./App.css";
 const App = () => {
   return (
-    <div>
-      <ParticleBackground /> {/* Ensure this is placed above other components */}
+    <div className="overflow-x-hidden">
       <Navbar />
       <Details />
       <About />

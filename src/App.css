@@ -1,17 +1,12 @@
-/* App.css */
+/* styles.css or App.css */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
 
-#tsparticles {
-  position: fixed; /* Fix it in position */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  top: 0; /* Align to the top */
-  left: 0; /* Align to the left */
-  z-index: -1; /* Ensure it stays behind other content */
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .App {
