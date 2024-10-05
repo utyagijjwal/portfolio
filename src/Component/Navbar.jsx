@@ -33,16 +33,36 @@ const Navbar = () => {
 
         {/* Navigation Links for Desktop */}
         <div className="hidden md:flex space-x-8 text-white text-lg">
-          <Link to="about" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
+          <Link
+            to="about"
+            smooth={true}
+            duration={500}
+            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+          >
             About
           </Link>
-          <Link to="projects" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
+          <Link
+            to="projects"
+            smooth={true}
+            duration={500}
+            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+          >
             Projects
           </Link>
-          <Link to="skills" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
+          <Link
+            to="skills"
+            smooth={true}
+            duration={500}
+            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+          >
             Skills
           </Link>
-          <Link to="contact" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+          >
             Contact
           </Link>
         </div>
@@ -79,7 +99,7 @@ const Navbar = () => {
             to="about" 
             smooth={true} 
             duration={500} 
-            className="block hover:text-indigo-300 transition duration-300" 
+            className="block hover:text-indigo-300 hover:underline transition duration-300" 
             onClick={() => setIsOpen(false)}
           >
             About
@@ -88,7 +108,7 @@ const Navbar = () => {
             to="projects" 
             smooth={true} 
             duration={500} 
-            className="block hover:text-indigo-300 transition duration-300" 
+            className="block hover:text-indigo-300 hover:underline transition duration-300" 
             onClick={() => setIsOpen(false)}
           >
             Projects
@@ -97,7 +117,7 @@ const Navbar = () => {
             to="skills" 
             smooth={true} 
             duration={500} 
-            className="block hover:text-indigo-300 transition duration-300" 
+            className="block hover:text-indigo-300 hover:underline transition duration-300" 
             onClick={() => setIsOpen(false)}
           >
             Skills
@@ -106,7 +126,7 @@ const Navbar = () => {
             to="contact" 
             smooth={true} 
             duration={500} 
-            className="block hover:text-indigo-300 transition duration-300" 
+            className="block hover:text-indigo-300 hover:underline transition duration-300" 
             onClick={() => setIsOpen(false)}
           >
             Contact
