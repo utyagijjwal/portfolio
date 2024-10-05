@@ -56,7 +56,7 @@ const Details = () => {
   }, [leftInView, rightInView, leftAnimation, rightAnimation]);
 
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen bg-gray-900 px-4 sm:px-6 lg:px-16">
+    <section className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-black px-4 sm:px-6 lg:px-16">
       
       {/* Left Section */}
       <motion.div
@@ -93,7 +93,7 @@ const Details = () => {
         <img
           src={Computerimg}
           alt="Ujjwal"
-          className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full shadow-2xl object-cover transition-transform duration-300 hover:scale-105 hover:shadow-3xl"
+          className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-100 lg:h-100  object-cover transition-transform duration-300  " // Adjusted size and removed rounded-full
         />
       </motion.div>
     </section>

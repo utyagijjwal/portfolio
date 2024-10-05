@@ -36,13 +36,13 @@ const Project = () => {
   }, []);
 
   return (
-    <div id="projects" className="bg-gray-900 py-10">
+    <div id="projects" className="bg-black py-10">
       <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen px-4 md:px-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-12 md:mb-8 self-start md:ml-20 ml-24 text-center md:text-left">
+        <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-12 md:mb-8 self-start text-center md:text-left">
           My Projects
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-screen-lg">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -52,7 +52,7 @@ const Project = () => {
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className="w-full h-40 sm:h-48 object-cover" 
+                className="w-full h-32 sm:h-40 md:h-48 object-cover" 
               />
               <div className="p-4 flex-grow">
                 <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">{project.title}</h3>

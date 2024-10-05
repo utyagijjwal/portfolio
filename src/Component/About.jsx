@@ -45,9 +45,9 @@ const About = () => {
   };
 
   return (
-    <div id="about" className="bg-gray-900">
+    <div id="about" className="bg-black overflow-hidden">
       <Navbar />
-      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen">
+      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen w-full">
         {loading ? (
           <ClipLoader color="#4A90E2" loading={loading} size={150} />
         ) : (
@@ -57,7 +57,7 @@ const About = () => {
               className="md:w-1/2 p-6 sm:p-8 text-white flex flex-col items-start"
               data-aos="fade-right" // AOS attribute for fade in from the right
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-6 sm:mb-4 md:mb-8 self-start md:ml-20 ml-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-6 sm:mb-4 md:mb-8">
                 About Me
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-4">

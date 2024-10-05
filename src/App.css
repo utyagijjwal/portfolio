@@ -1,3 +1,19 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#tsparticles {
+  position: fixed; /* Fix it in position */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  z-index: -1; /* Ensure it stays behind other content */
+}
+
 .App {
   text-align: center;
 }

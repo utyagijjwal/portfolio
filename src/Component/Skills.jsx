@@ -18,11 +18,11 @@ const Skills = () => {
   return (
     <div id="skills">
       <Navbar />
-      <section className="min-h-screen bg-gray-900 flex flex-col items-center justify-center py-10">
+      <section className="min-h-screen bg-black flex flex-col items-center justify-center py-10">
         <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-12 md:mb-8 text-center">
           My Skills
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-10 w-full max-w-6xl px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-10 w-full max-w-screen-xl px-4">
           <div
             className="flex flex-col items-center"
             data-aos="fade-left" // AOS attribute for left-side animation
@@ -30,7 +30,7 @@ const Skills = () => {
             <img 
               src={JsLogo} 
               alt="JavaScript" 
-              className="w-24 h-24 sm:w-32 sm:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
             />
             <p className="text-white text-center">JavaScript</p>
           </div>
@@ -41,7 +41,7 @@ const Skills = () => {
             <img 
               src={ReactLogo} 
               alt="React" 
-              className="w-24 h-24 sm:w-32 sm:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
             />
             <p className="text-white text-center">React.js</p>
           </div>
@@ -52,7 +52,7 @@ const Skills = () => {
             <img 
               src={TailwindLogo} 
               alt="Tailwind CSS" 
-              className="w-24 h-24 sm:w-32 sm:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
             />
             <p className="text-white text-center">Tailwind CSS</p>
           </div>
@@ -63,7 +63,7 @@ const Skills = () => {
             <img 
               src={CppLogo} 
               alt="C++" 
-              className="w-24 h-24 sm:w-32 sm:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
             />
             <p className="text-white text-center">C++</p>
           </div>
