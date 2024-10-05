@@ -27,7 +27,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="text-2xl md:text-3xl font-bold text-white">
           <Link to="home" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
-            Ujjwal's Portfolio
+            <span className="text-yellow-500">U</span>jjwal's Portfolio
           </Link>
         </div>
 
