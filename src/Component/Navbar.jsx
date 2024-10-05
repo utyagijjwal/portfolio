@@ -3,11 +3,11 @@ import { Link } from 'react-scroll'; // Import Link from react-scroll
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [navbar, setNavbar] = useState(true);
+  const [navbar, setNavbar] = useState(false);
 
   // Function to change the navbar background on scroll
   const changeBackground = () => {
-    setNavbar(window.scrollY >= 80); // Simplified to a single line
+    setNavbar(window.scrollY >= 80);
   };
 
   useEffect(() => {
@@ -19,11 +19,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         navbar ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center py-4 md:py-5">
+      <div className="container mx-auto px-4 flex justify-between items-center py-4 sm:py-3 md:py-5">
         {/* Logo Section */}
         <div className="text-2xl md:text-3xl font-bold text-white">
           <Link to="home" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
@@ -37,7 +37,7 @@ const Navbar = () => {
             to="about"
             smooth={true}
             duration={500}
-            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+            className="hover:text-indigo-300 hover:underline transition duration-300"
           >
             About
           </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
             to="projects"
             smooth={true}
             duration={500}
-            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+            className="hover:text-indigo-300 hover:underline transition duration-300"
           >
             Projects
           </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
             to="skills"
             smooth={true}
             duration={500}
-            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+            className="hover:text-indigo-300 hover:underline transition duration-300"
           >
             Skills
           </Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
             to="contact"
             smooth={true}
             duration={500}
-            className="hover:text-indigo-300 hover:underline transition duration-300" // Added underline on hover
+            className="hover:text-indigo-300 hover:underline transition duration-300"
           >
             Contact
           </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-800 text-white px-4 py-2 space-y-4">
+        <div className="md:hidden bg-gray-800 text-white px-4 py-2 space-y-4 z-40">
           <Link 
             to="about" 
             smooth={true} 

@@ -1,56 +1,76 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion, useAnimation } from 'framer-motion'; // Import motion and animation hooks from framer-motion
+import { useInView } from 'react-intersection-observer'; // Import Intersection Observer hook
 import Computerimg from '../Assests/regis[1].svg';
 
 const Details = () => {
   const [displayText, setDisplayText] = useState('');
   const fullText = " Front-End Developer";
-  const typingSpeed = 200; // Adjust typing speed (ms per character)
-  const pauseDuration = 1000; // Pause after typing the full text (in milliseconds)
+  const typingSpeed = 200;
+  const pauseDuration = 1000;
+
+  // Initialize scroll animations
+  const leftAnimation = useAnimation();
+  const rightAnimation = useAnimation();
+  
+  // Use intersection observer to detect when the elements are in view
+  const { ref: leftRef, inView: leftInView } = useInView({ triggerOnce: false });
+  const { ref: rightRef, inView: rightInView } = useInView({ triggerOnce: false });
 
   useEffect(() => {
+    // Typing effect logic
     let index = 0;
     let isTyping = true;
 
     const intervalId = setInterval(() => {
       if (isTyping) {
-        setDisplayText(fullText.slice(0, index + 1)); // Add one character at a time
+        setDisplayText(fullText.slice(0, index + 1));
         index++;
 
         if (index === fullText.length) {
-          isTyping = false; // Switch to pause mode
+          isTyping = false;
           setTimeout(() => {
-            index = 0; // Reset index to start typing again
-            isTyping = true; // Switch back to typing mode
+            index = 0;
+            isTyping = true;
           }, pauseDuration);
         }
       }
-    }, typingSpeed); // Typing speed
+    }, typingSpeed);
 
-    return () => clearInterval(intervalId); // Cleanup on component unmount
+    return () => clearInterval(intervalId);
   }, [fullText]);
 
-  // Animation variants for the left and right sections
-  const variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+  // Trigger animation when in view
+  useEffect(() => {
+    if (leftInView) {
+      leftAnimation.start({ x: 0, opacity: 1 });
+    } else {
+      leftAnimation.start({ x: -200, opacity: 0 }); // Reset animation
+    }
+    
+    if (rightInView) {
+      rightAnimation.start({ x: 0, opacity: 1 });
+    } else {
+      rightAnimation.start({ x: 200, opacity: 0 }); // Reset animation
+    }
+  }, [leftInView, rightInView, leftAnimation, rightAnimation]);
 
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen bg-gray-900 px-6 sm:px-12 lg:px-24">
+    <section className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen bg-gray-900 px-4 sm:px-6 lg:px-16">
+      
       {/* Left Section */}
       <motion.div
+        ref={leftRef}
         className="md:w-1/2 text-center md:text-left mb-8 md:mb-0"
-        initial="hidden" // Initial state
-        animate="visible" // Animated state
-        variants={variants} // Animation variants
-        transition={{ duration: 0.5 }} // Transition settings
+        initial={{ x: -200, opacity: 0 }}
+        animate={leftAnimation}
+        transition={{ duration: 1 }}
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-400 mb-4">
           Hi there! I am Ujjwal
         </h1>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-300 mb-4">
-         {displayText}
+          {displayText}
         </h2>
         <a
           href="https://drive.google.com/file/d/1gYqjcFkjZQiw1BGa3gQdAcnDJoEmjJjm/view?usp=sharing"
@@ -64,16 +84,16 @@ const Details = () => {
 
       {/* Right Section */}
       <motion.div
+        ref={rightRef}
         className="md:w-1/2 flex justify-center mb-8 md:mb-0"
-        initial="hidden" // Initial state
-        animate="visible" // Animated state
-        variants={variants} // Animation variants
-        transition={{ duration: 0.5, delay: 0.2 }} // Transition settings with delay
+        initial={{ x: 200, opacity: 0 }}
+        animate={rightAnimation}
+        transition={{ duration: 1 }}
       >
         <img
-          src={Computerimg} // Replace with your actual image path
+          src={Computerimg}
           alt="Ujjwal"
-          className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full shadow-2xl object-cover transition-transform duration-300 hover:scale-105 hover:shadow-3xl"
+          className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full shadow-2xl object-cover transition-transform duration-300 hover:scale-105 hover:shadow-3xl"
         />
       </motion.div>
     </section>

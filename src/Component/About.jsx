@@ -4,17 +4,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Ujjwalimg from '../Assests/ujjwal photo.jpeg';
 import { ClipLoader } from 'react-spinners';
+import AOS from 'aos'; // Import AOS library
+import 'aos/dist/aos.css'; // Import AOS CSS
 
 const About = () => {
   const [loading, setLoading] = useState(true);
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
+    // Initialize AOS once
+    AOS.init({ 
+      duration: 1200, 
+      once: false, // Allow animations to run every time the element is in view
+    });
+
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
 
-    return () => clearTimeout(timer);
+    // Refresh AOS on resize
+    window.addEventListener('resize', AOS.refresh);
+    
+    // Cleanup timer and event listener
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', AOS.refresh);
+    };
   }, []);
 
   // Function to calculate the rotation angle based on cursor position
@@ -30,35 +45,41 @@ const About = () => {
   };
 
   return (
-    <div id="about">
+    <div id="about" className="bg-gray-900">
       <Navbar />
-      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-900">
+      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen">
         {loading ? (
           <ClipLoader color="#4A90E2" loading={loading} size={150} />
         ) : (
           <>
             {/* Left Side: About Text */}
-            <div className="md:w-1/2 p-6 sm:p-8 text-white flex flex-col items-start">
-              <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-12 md:mb-8 self-start md:ml-20 ml-24">
+            <div
+              className="md:w-1/2 p-6 sm:p-8 text-white flex flex-col items-start"
+              data-aos="fade-right" // AOS attribute for fade in from the right
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-6 sm:mb-4 md:mb-8 self-start md:ml-20 ml-8">
                 About Me
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
                 Hi, I'm Ujjwal! I am a passionate software developer with a strong background in full-stack development.
                 I enjoy building visually stunning, user-friendly websites and applications. My expertise lies in React.js, Tailwind CSS,
                 and other modern web technologies. I am always eager to learn new things and push the boundaries of what's possible in web development.
               </p>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
                 I love coding, solving problems, and creating intuitive user experiences. When I'm not coding, you'll find me exploring new technologies
                 or working on exciting personal projects.
               </p>
             </div>
 
             {/* Right Side: Image and Social Media Icons */}
-            <div className="md:w-1/2 p-6 sm:p-8 flex flex-col items-center">
+            <div
+              className="md:w-1/2 p-6 sm:p-8 flex flex-col items-center"
+              data-aos="fade-left" // AOS attribute for fade in from the left
+            >
               <img
                 src={Ujjwalimg}
                 alt="Ujjwal"
-                className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-indigo-400 shadow-lg 
+                className="w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 object-cover rounded-full border-4 border-indigo-400 shadow-lg 
                            transition-transform duration-300 hover:shadow-2xl"
                 style={{ transform: `rotate(${rotation}deg)` }} // Apply rotation
                 onMouseMove={handleMouseMove} // Track cursor movement
