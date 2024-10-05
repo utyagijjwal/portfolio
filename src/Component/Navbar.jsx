@@ -23,15 +23,15 @@ const Navbar = () => {
         navbar ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center py-4">
+      <div className="container mx-auto px-4 flex justify-between items-center py-4 md:py-5">
         {/* Logo Section */}
-        <div className="text-3xl font-bold text-white">
+        <div className="text-2xl md:text-3xl font-bold text-white">
           <Link to="home" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
             Ujjwal's Portfolio
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links for Desktop */}
         <div className="hidden md:flex space-x-8 text-white text-lg">
           <Link to="about" smooth={true} duration={500} className="hover:text-indigo-300 transition duration-300">
             About
@@ -49,7 +49,11 @@ const Navbar = () => {
 
         {/* Mobile Hamburger Menu */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="focus:outline-none" 
+            aria-label="Toggle Menu"
+          >
             <svg
               className="w-6 h-6 text-white"
               fill="none"
@@ -71,16 +75,40 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-800 text-white px-4 py-2 space-y-4">
-          <Link to="about" smooth={true} duration={500} className="block hover:text-indigo-300 transition duration-300" onClick={() => setIsOpen(false)}>
+          <Link 
+            to="about" 
+            smooth={true} 
+            duration={500} 
+            className="block hover:text-indigo-300 transition duration-300" 
+            onClick={() => setIsOpen(false)}
+          >
             About
           </Link>
-          <Link to="projects" smooth={true} duration={500} className="block hover:text-indigo-300 transition duration-300" onClick={() => setIsOpen(false)}>
+          <Link 
+            to="projects" 
+            smooth={true} 
+            duration={500} 
+            className="block hover:text-indigo-300 transition duration-300" 
+            onClick={() => setIsOpen(false)}
+          >
             Projects
           </Link>
-          <Link to="skills" smooth={true} duration={500} className="block hover:text-indigo-300 transition duration-300" onClick={() => setIsOpen(false)}>
+          <Link 
+            to="skills" 
+            smooth={true} 
+            duration={500} 
+            className="block hover:text-indigo-300 transition duration-300" 
+            onClick={() => setIsOpen(false)}
+          >
             Skills
           </Link>
-          <Link to="contact" smooth={true} duration={500} className="block hover:text-indigo-300 transition duration-300" onClick={() => setIsOpen(false)}>
+          <Link 
+            to="contact" 
+            smooth={true} 
+            duration={500} 
+            className="block hover:text-indigo-300 transition duration-300" 
+            onClick={() => setIsOpen(false)}
+          >
             Contact
           </Link>
         </div>

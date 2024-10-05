@@ -31,7 +31,7 @@ const Project = () => {
     <div id="projects">
       <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 px-4 md:px-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-12 md:mb-16 self-start md:ml-0 ml-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-indigo-400 mb-12 md:mb-8 self-start md:ml-20 ml-24">
           My Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
