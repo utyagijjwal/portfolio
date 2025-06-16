@@ -73,7 +73,7 @@ const Details = () => {
           {displayText}
         </h2>
         <a
-          href="https://drive.google.com/file/d/1gYqjcFkjZQiw1BGa3gQdAcnDJoEmjJjm/view?usp=sharing"
+          href="https://drive.google.com/file/d/1VzHPgznBUEZKzblxZh04ZQJAqMDDxejL/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mt-6 px-6 py-3 bg-indigo-700 hover:bg-indigo-600 rounded-md text-white text-lg transition duration-300"
