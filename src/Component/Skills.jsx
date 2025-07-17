@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import JsLogo from '../Assests/javascript.png';
 import ReactLogo from '../Assests/react.png';
+import NodeLogo from '../Assests/node-js-svgrepo-com.svg';
+import Mongo from '../Assests/mongo.png';
 import TailwindLogo from '../Assests/tailwind.png';
 import CppLogo from '../Assests/s.png'; // Replace with your actual logo path
 import AOS from 'aos'; // Import AOS
@@ -45,6 +47,29 @@ const Skills = () => {
             />
             <p className="text-white text-center">React.js</p>
           </div>
+           <div
+            className="flex flex-col items-center"
+            data-aos="fade-left" // AOS attribute for left-side animation
+          >
+            <img 
+              src={NodeLogo} 
+              alt="Node" 
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
+            />
+            <p className="text-white text-center">Node.js</p>
+          </div>
+          <div
+            className="flex flex-col items-center"
+            data-aos="fade-left" // AOS attribute for left-side animation
+          >
+            <img 
+              src={Mongo} 
+              alt="Mongo" 
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-4 transition-transform duration-300 hover:scale-110" 
+            />
+            <p className="text-white text-center">MongoDB</p>
+          </div>
+          
           <div
             className="flex flex-col items-center"
             data-aos="fade-right" // AOS attribute for right-side animation
